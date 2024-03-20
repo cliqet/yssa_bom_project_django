@@ -2,7 +2,7 @@
 has_uppercase = False       
 has_lowercase = False
 has_letter = True           # Set to False when either has_uppercase or has_lowercase is True
-has_digit = True
+has_digit = False
 has_min_length = True
 has_special_chars = False
 min_length = 8
@@ -27,27 +27,27 @@ def get_password_help_text() -> str:
     help_text = 'Password must contain '
 
     if has_letter:
-        help_text += 'one letter, '
+        help_text += 'at least one letter, '
 
         if has_digit:
-            help_text += 'one digit, '
+            help_text += 'at least one digit, '
 
         if has_special_chars:
-            help_text += 'one special character, '
+            help_text += 'at least one special character, '
 
         if has_min_length:
             help_text += f'and must be at least {min_length} characters, '
     else:
         if has_uppercase:
-            help_text += 'one uppercase letter, '
+            help_text += 'at least one uppercase letter, '
         if has_lowercase:
-            help_text += 'one lowercase letter, '
+            help_text += 'at least one lowercase letter, '
         
         if has_digit:
-            help_text += 'one digit, '
+            help_text += 'at least one digit, '
 
         if has_special_chars:
-            help_text += 'one special character, '
+            help_text += 'at least one special character, '
 
         if has_min_length:
             help_text += f'and must be at least {min_length} characters, '

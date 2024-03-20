@@ -1,12 +1,16 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import Department, EmployeePosition, Employee
-
+from .forms import UserCreationForm, UserChangeForm
 
 LIST_PAGE_COUNT = 20
 
 
 class EmployeeAdmin(BaseUserAdmin):
+    # The forms to add and change user instances
+    form = UserChangeForm
+    add_form = UserCreationForm
+
     list_display = (
         'id', 'email', 'first_name', 'last_name', 'contact_no', 'department', 'employee_position',
         'is_active', 'is_staff', 'is_superuser',
@@ -16,8 +20,10 @@ class EmployeeAdmin(BaseUserAdmin):
     list_filter = ['department', 'employee_position', 'is_active', 'is_staff', 'is_superuser']
     search_fields = ['email', 'first_name', 'last_name']
     list_per_page = LIST_PAGE_COUNT
+
+    # Ensures that password field does not appear as plaintext
     fieldsets = (
-        ('User Credentials', {'fields': ('email', 'password')}),
+        ('User Credentials', {'fields': ('email', 'password',)}),
         ('User Information', {'fields': (
             'first_name',
             'last_name',
@@ -32,6 +38,15 @@ class EmployeeAdmin(BaseUserAdmin):
             'groups',
             'user_permissions'
         )}),
+    )
+
+    # Handle adding error when email is used as username since BaseUserAdmin
+    # is looking for username
+    add_fieldsets = (
+        ('User Credentials', {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2'),
+        }),
     )
 
     # do not show superuser in list of users if current user is not a superuser
