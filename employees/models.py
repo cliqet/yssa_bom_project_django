@@ -51,7 +51,6 @@ class CustomUserManager(BaseUserManager):
 
 class Employee(AbstractBaseUser, PermissionsMixin):
     password_help_text = get_password_help_text()
-    print('password_help_text', password_help_text)
 
     # Regex pattern for password validation
     password_validator = RegexValidator(
@@ -108,22 +107,3 @@ class Employee(AbstractBaseUser, PermissionsMixin):
 
         # Validate the password field
         self.password_validator(self.password, self)
-
-
-# class Employee(models.Model):
-#     user = models.OneToOneField(User,
-#                                 on_delete=models.PROTECT,
-#                                 null=True,
-#                                 blank=True,
-#                                 unique=True,
-#                                 help_text='Click user to edit username, password, first and last name, staff status')
-#     department = models.ForeignKey(Department, on_delete=models.PROTECT, null=True, blank=True)
-#     employee_position = models.ForeignKey(EmployeePosition, on_delete=models.PROTECT, null=True, blank=True)
-#     first_name = models.CharField(max_length=255)
-#     last_name = models.CharField(max_length=255)
-#     contact_no = models.CharField(max_length=50)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
-
-#     def __str__(self) -> str:
-#         return f'ID: {self.pk} - {self.first_name} {self.last_name}'

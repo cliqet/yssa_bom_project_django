@@ -46,13 +46,13 @@ __pycache__/
 *.sqlite3
 
 # Media files
-backend/media/*
-!backend/media/.gitkeep
-backend/media/demo
-backend/media/demo/*
+media/layouts/
+media/layouts/*
 
 notes/
 notes/*
 
 ignore/
 ignore/*
+
+NOTES.txt
