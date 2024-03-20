@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    {% if subtitle %}
+        {{ subtitle }} | 
+    {% endif %}
+    {{ title }} | {{ site_title|default:_('Django site admin') }}
+{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+    <div style="padding: 4px; background-color: white;">
+        <a href="{% url 'admin:index' %}">
+            <img 
+                src="{% static 'admin/img/msdlogo.png' %}" 
+                alt="MSD Logo"
+                style="width: 500px; height: 100px;" 
+            />
+        </a>
+    </div>
+</div>
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
