@@ -1,0 +1,31 @@
+[application]
+  secret_key = 'django-insecure-yzjfpb3nl2mh#b0g&9ni@4nutgelormrmw(q0da)75q(0k@22l'
+
+  debug_mode = true
+
+  allowed_hosts = []
+
+[database]
+  # valid values are sqlite, psql
+  db_type = 'psql'
+
+  # db engine to use
+  psql_db_engine = "django.db.backends.postgresql"
+
+  # Name of the database
+  psql_db_name = ""
+
+  # Database username
+  psql_db_user = ""
+
+  # Database password
+  psql_db_password = ""
+
+  # Database hostname
+  psql_db_host = "127.0.0.1"
+
+  # Database port
+  psql_db_port = "5432"
+
+  # List of database schema names to include if using PostgreSQL
+  psql_db_schemas = ["msdbom"]

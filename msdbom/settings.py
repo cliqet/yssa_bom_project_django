@@ -1,20 +1,25 @@
 from pathlib import Path
 import os
+import toml
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load TOML file
+with open(os.path.join(BASE_DIR, 'config.toml')) as f:
+    config = toml.load(f)
+    print('Config loaded successfully')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yzjfpb3nl2mh#b0g&9ni@4nutgelormrmw(q0da)75q(0k@22l'
+SECRET_KEY = config.get('application', {}).get('secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.get('application', {}).get('debug_mode')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config.get('application', {}).get('allowed_hosts')
 
 
 # Application definition
@@ -69,12 +74,27 @@ WSGI_APPLICATION = 'msdbom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if config.get('database', {}).get('db_type') == 'sqlite':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+elif config.get('database', {}).get('db_type') == 'psql':
+    DATABASES = {
+        "default": {
+            "ENGINE": config.get('database', {}).get('psql_db_engine'),
+            'OPTIONS': {
+                'options': f"-c search_path={','.join(config.get('database', {}).get('psql_db_schemas'))}"
+            },
+            "NAME": config.get('database', {}).get('psql_db_name'),
+            "USER": config.get('database', {}).get('psql_db_user'),
+            "PASSWORD": config.get('database', {}).get('psql_db_password'),
+            "HOST": config.get('database', {}).get('psql_db_host'),
+            "PORT": config.get('database', {}).get('psql_db_port'),
+        }
+    }
 
 
 # Password validation

@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 from employees.models import Employee
 from clients.models import Client
 
