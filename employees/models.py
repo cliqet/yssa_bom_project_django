@@ -89,8 +89,8 @@ class Employee(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+        verbose_name = 'Employee'
+        verbose_name_plural = 'Employees'
 
     def __str__(self) -> str:
         return f'ID: {self.pk} - {self.first_name} {self.last_name}'
