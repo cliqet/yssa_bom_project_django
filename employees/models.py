@@ -51,6 +51,7 @@ class CustomUserManager(BaseUserManager):
 
 class Employee(AbstractBaseUser, PermissionsMixin):
     password_help_text = get_password_help_text()
+    print('password_help_text', password_help_text)
 
     # Regex pattern for password validation
     password_validator = RegexValidator(

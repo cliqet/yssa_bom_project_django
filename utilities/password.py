@@ -28,6 +28,15 @@ def get_password_help_text() -> str:
 
     if has_letter:
         help_text += 'one letter, '
+
+        if has_digit:
+            help_text += 'one digit, '
+
+        if has_special_chars:
+            help_text += 'one special character, '
+
+        if has_min_length:
+            help_text += f'and must be at least {min_length} characters, '
     else:
         if has_uppercase:
             help_text += 'one uppercase letter, '
@@ -43,58 +52,4 @@ def get_password_help_text() -> str:
         if has_min_length:
             help_text += f'and must be at least {min_length} characters, '
 
-        return help_text[:-2]
-
-def get_validation_indicators() -> list:
-    indicators = []
-
-    if has_letter:
-        indicators.append(
-            {
-                "message": "Must have at least one letter",
-                "condition": "hasLetter"
-            }
-        )
-    else:
-        if has_uppercase:
-            indicators.append(
-                {
-                    "message": "Must have at least one uppercase letter",
-                    "condition": "hasUpperCase"
-                }
-            )
-        
-        if has_lowercase:
-            indicators.append(
-                {
-                    "message": "Must have at least one lowercase letter",
-                    "condition": "hasLowerCase"
-                }
-            )
-
-    if has_digit:
-        indicators.append(
-            {
-                "message": "Must have at least one digit",
-                "condition": "hasDigit"
-            }
-        )
-
-    if has_special_chars:
-        indicators.append(
-            {
-                "message": f"Must have at least one special character from {special_chars}",
-                "condition": "hasSpecialCharacter"
-            }
-        )
-
-    if has_min_length:
-        indicators.append(
-            {
-                "message": f"Must be at least {min_length} characters long",
-                "condition": "hasLength"
-            }
-        )
-
-    return indicators
-
+    return help_text[:-2]
