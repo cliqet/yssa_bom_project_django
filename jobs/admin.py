@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Job
+from .models import Job, BomGeneration
 from .forms import JobForm
 
 
@@ -19,8 +19,109 @@ class JobAdmin(admin.ModelAdmin):
     search_fields = ['job_id', 'event_name', 'event_venue']
     list_per_page = LIST_PAGE_COUNT
 
+    readonly_fields = ['created_at']
+
+    fieldsets = (
+        ('Job Information', {'fields': ('job_id', 'sales_executive', 'created_at')}),
+        ('Event Details', {'fields': (
+            'event_name',
+            'event_venue',
+            'start_date',
+            'end_date'
+        )}),
+        ('Client Details', {'fields': ('client',)}),
+        ('Setup Schedule', {'fields': (
+            'ingress_date',
+            'ingress_time',
+            'egress_date',
+            'egress_time'
+        )}),
+        ('Cluster Booth Requirements', {'fields': (
+            ('cluster_booth_count_2x2', 'cluster_total_count_2x2'),
+            ('cluster_booth_count_2x3', 'cluster_total_count_2x3'),
+            ('cluster_booth_count_3x3', 'cluster_total_count_3x3'),
+            ('cluster_booth_count_3x4', 'cluster_total_count_3x4'),
+            ('cluster_booth_count_4x4', 'cluster_total_count_4x4'),
+        )}),
+        ('Perimeter Booth Requirements', {'fields': (
+            ('perimeter_booth_count_2x2', 'perimeter_total_count_2x2'),
+            ('perimeter_booth_count_2x3', 'perimeter_total_count_2x3'),
+            ('perimeter_booth_count_3x3', 'perimeter_total_count_3x3'),
+        )}),
+        ('Other Information', {'fields': ('contingency',)}),
+        ('Processing Information', {'fields': (
+            'prepared_by',
+            'reviewed_by',
+            'approved_by'
+        )}),
+    )
+
+
+class BomGenerationAdmin(admin.ModelAdmin):
+    list_display = (
+        'job', 'created_at', 'post', 'panel', 'beam', 'facia_length', 'facia_width', 
+        'corner_length_beam', 'corner_width_beam'
+    )
+    ordering = ('id', 'created_at')
+    list_display_links = ['job']
+    search_fields = ['job__job_id']
+    list_per_page = LIST_PAGE_COUNT
+
+    fieldsets = (
+        ('Job Information', {'fields': ('job', 'sales_executive', 'created_at')}),
+        ('Requirements', {'fields': (
+            ('post', 'panel', 'beam'),
+            ('facia_length', 'facia_width'),
+            ('corner_length_beam', 'corner_width_beam'),
+        )}),
+        ('Event Details', {'fields': (
+            ('event_name', 'event_venue'),
+            ('start_date', 'end_date')
+        )}),
+        ('Client Details', {'fields': ('client',)}),
+        ('Setup Schedule', {'fields': (
+            ('ingress_date', 'ingress_time'),
+            ('egress_date', 'egress_time')
+        )}),
+        ('Processing Information', {'fields': (
+            'prepared_by',
+            'reviewed_by',
+            'approved_by'
+        )}),
+    )
+
+    # readonly_fields = [field.name for field in BomGeneration._meta.get_fields()]
+    readonly_fields = [
+        'job', 'post', 'panel', 'beam', 'facia_length', 'facia_width', 
+        'corner_length_beam', 'corner_width_beam', 
+        'event_name', 'event_venue', 'start_date', 'end_date',
+        'client', 'ingress_date', 'ingress_time', 'egress_date', 'egress_time',
+        'sales_executive', 'prepared_by', 'reviewed_by', 'approved_by', 'created_at'
+    ]
+
+    # Show all fields as read only when viewing details
+    def get_readonly_fields(self, request, obj=None):
+        if obj:  # Editing an existing object
+            return self.readonly_fields
+        return []
+    
+    # Disable add
+    def has_add_permission(self, request, obj=None):
+        return False
+    
+    # Disable delete
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    # Disable save
+    def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['show_save_and_continue'] = False
+        extra_context['show_save'] = False
+        return super(BomGenerationAdmin, self).changeform_view(request, object_id, extra_context=extra_context)
 
 admin.site.register(Job, JobAdmin)
+admin.site.register(BomGeneration, BomGenerationAdmin)
 
 admin.site.site_header = "MSD Admin"
 admin.site.site_title = "MSD Admin Portal"
