@@ -49,6 +49,19 @@ class EmployeeAdmin(BaseUserAdmin):
         }),
     )
 
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+
+        # Check if the user is a superuser
+        if not request.user.is_superuser:
+            # Remove the 'is_superuser' field from the fieldsets
+            fieldsets = [
+                (fieldset[0], {'fields': tuple(field for field in fieldset[1]['fields'] if field != 'is_superuser')})
+                for fieldset in fieldsets
+            ]
+
+        return fieldsets
+
     # do not show superuser in list of users if current user is not a superuser
     def get_queryset(self, request):
         qs = super(EmployeeAdmin, self).get_queryset(request)
