@@ -5,6 +5,9 @@
 
   allowed_hosts = []
 
+  # refer to list of IANA timezones here https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  server_time_zone = 'Asia/Manila'
+
 [database]
   # valid values are sqlite, psql
   db_type = 'psql'
