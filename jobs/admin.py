@@ -59,8 +59,7 @@ class JobAdmin(admin.ModelAdmin):
 
 class BomGenerationAdmin(admin.ModelAdmin):
     list_display = (
-        'job', 'created_at', 'post', 'panel', 'beam', 'facia_length', 'facia_width', 
-        'corner_length_beam', 'corner_width_beam'
+        'job', 'created_at'
     )
     ordering = ('id', 'created_at')
     list_display_links = ['job']
@@ -69,10 +68,23 @@ class BomGenerationAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Job Information', {'fields': ('job', 'sales_executive', 'created_at')}),
-        ('Requirements', {'fields': (
-            ('post', 'panel', 'beam'),
-            ('facia_length', 'facia_width'),
-            ('corner_length_beam', 'corner_width_beam'),
+        ('Cluster', {'fields': (
+            ('cluster_post_2x2', 'cluster_post_2x3', 'cluster_post_3x3', 'cluster_post_3x4', 'cluster_post_4x4'), 
+            ('cluster_panel_2x2', 'cluster_panel_2x3', 'cluster_panel_3x3', 'cluster_panel_3x4', 'cluster_panel_4x4'),
+            ('cluster_beam_2x2', 'cluster_beam_2x3', 'cluster_beam_3x3', 'cluster_beam_3x4', 'cluster_beam_4x4'),
+            ('cluster_facia_length_2x2', 'cluster_facia_length_2x3', 'cluster_facia_length_3x3', 'cluster_facia_length_3x4', 'cluster_facia_length_4x4'),
+            ('cluster_facia_width_2x2', 'cluster_facia_width_2x3', 'cluster_facia_width_3x3', 'cluster_facia_width_3x4', 'cluster_facia_width_4x4'),
+            ('cluster_corner_length_beam_2x2', 'cluster_corner_length_beam_2x3', 'cluster_corner_length_beam_3x3', 'cluster_corner_length_beam_3x4', 'cluster_corner_length_beam_4x4'),
+            ('cluster_corner_width_beam_2x2', 'cluster_corner_width_beam_2x3', 'cluster_corner_width_beam_3x3', 'cluster_corner_width_beam_3x4', 'cluster_corner_width_beam_4x4'),
+        )}),
+        ('Perimeter', {'fields': (
+            ('perimeter_post_2x2', 'perimeter_post_2x3', 'perimeter_post_3x3'),
+            ('perimeter_panel_2x2', 'perimeter_panel_2x3', 'perimeter_panel_3x3'),
+            ('perimeter_beam_2x2', 'perimeter_beam_2x3', 'perimeter_beam_3x3'), 
+            ('perimeter_facia_length_2x2', 'perimeter_facia_length_2x3', 'perimeter_facia_length_3x3'),
+            ('perimeter_facia_width_2x2', 'perimeter_facia_width_2x3', 'perimeter_facia_width_3x3'),
+            ('perimeter_corner_length_beam_2x2', 'perimeter_corner_length_beam_2x3', 'perimeter_corner_length_beam_3x3'),
+            ('perimeter_corner_width_beam_2x2', 'perimeter_corner_width_beam_2x3', 'perimeter_corner_width_beam_3x3'),
         )}),
         ('Event Details', {'fields': (
             ('event_name', 'event_venue'),
@@ -92,8 +104,24 @@ class BomGenerationAdmin(admin.ModelAdmin):
 
     # readonly_fields = [field.name for field in BomGeneration._meta.get_fields()]
     readonly_fields = [
-        'job', 'post', 'panel', 'beam', 'facia_length', 'facia_width', 
-        'corner_length_beam', 'corner_width_beam', 
+        'job',
+        
+        'cluster_post_2x2', 'cluster_post_2x3', 'cluster_post_3x3', 'cluster_post_3x4', 'cluster_post_4x4', 
+        'cluster_panel_2x2', 'cluster_panel_2x3', 'cluster_panel_3x3', 'cluster_panel_3x4', 'cluster_panel_4x4',
+        'cluster_beam_2x2', 'cluster_beam_2x3', 'cluster_beam_3x3', 'cluster_beam_3x4', 'cluster_beam_4x4',
+        'cluster_facia_length_2x2', 'cluster_facia_length_2x3', 'cluster_facia_length_3x3', 'cluster_facia_length_3x4', 'cluster_facia_length_4x4',
+        'cluster_facia_width_2x2', 'cluster_facia_width_2x3', 'cluster_facia_width_3x3', 'cluster_facia_width_3x4', 'cluster_facia_width_4x4',
+        'cluster_corner_length_beam_2x2', 'cluster_corner_length_beam_2x3', 'cluster_corner_length_beam_3x3', 'cluster_corner_length_beam_3x4', 'cluster_corner_length_beam_4x4',
+        'cluster_corner_width_beam_2x2', 'cluster_corner_width_beam_2x3', 'cluster_corner_width_beam_3x3', 'cluster_corner_width_beam_3x4', 'cluster_corner_width_beam_4x4',
+        
+        'perimeter_post_2x2', 'perimeter_post_2x3', 'perimeter_post_3x3',
+        'perimeter_panel_2x2', 'perimeter_panel_2x3', 'perimeter_panel_3x3',
+        'perimeter_beam_2x2', 'perimeter_beam_2x3', 'perimeter_beam_3x3', 
+        'perimeter_facia_length_2x2', 'perimeter_facia_length_2x3', 'perimeter_facia_length_3x3',
+        'perimeter_facia_width_2x2', 'perimeter_facia_width_2x3', 'perimeter_facia_width_3x3',
+        'perimeter_corner_length_beam_2x2', 'perimeter_corner_length_beam_2x3', 'perimeter_corner_length_beam_3x3',
+        'perimeter_corner_width_beam_2x2', 'perimeter_corner_width_beam_2x3', 'perimeter_corner_width_beam_3x3',
+
         'event_name', 'event_venue', 'start_date', 'end_date',
         'client', 'ingress_date', 'ingress_time', 'egress_date', 'egress_time',
         'sales_executive', 'prepared_by', 'reviewed_by', 'approved_by', 'created_at'
@@ -110,8 +138,8 @@ class BomGenerationAdmin(admin.ModelAdmin):
         return False
     
     # Disable delete
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
 
     # Disable save
     def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
