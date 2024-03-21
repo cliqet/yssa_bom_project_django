@@ -68,23 +68,54 @@ class BomGenerationAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Job Information', {'fields': ('job', 'sales_executive', 'created_at')}),
-        ('Cluster', {'fields': (
-            ('cluster_post_2x2', 'cluster_post_2x3', 'cluster_post_3x3', 'cluster_post_3x4', 'cluster_post_4x4'), 
-            ('cluster_panel_2x2', 'cluster_panel_2x3', 'cluster_panel_3x3', 'cluster_panel_3x4', 'cluster_panel_4x4'),
-            ('cluster_beam_2x2', 'cluster_beam_2x3', 'cluster_beam_3x3', 'cluster_beam_3x4', 'cluster_beam_4x4'),
-            ('cluster_facia_length_2x2', 'cluster_facia_length_2x3', 'cluster_facia_length_3x3', 'cluster_facia_length_3x4', 'cluster_facia_length_4x4'),
-            ('cluster_facia_width_2x2', 'cluster_facia_width_2x3', 'cluster_facia_width_3x3', 'cluster_facia_width_3x4', 'cluster_facia_width_4x4'),
-            ('cluster_corner_length_beam_2x2', 'cluster_corner_length_beam_2x3', 'cluster_corner_length_beam_3x3', 'cluster_corner_length_beam_3x4', 'cluster_corner_length_beam_4x4'),
-            ('cluster_corner_width_beam_2x2', 'cluster_corner_width_beam_2x3', 'cluster_corner_width_beam_3x3', 'cluster_corner_width_beam_3x4', 'cluster_corner_width_beam_4x4'),
+        ('Cluster Post', {'fields': (
+            'cluster_post_2x2', 'cluster_post_2x3', 'cluster_post_3x3',
+            'cluster_post_3x4', 'cluster_post_4x4'
         )}),
-        ('Perimeter', {'fields': (
-            ('perimeter_post_2x2', 'perimeter_post_2x3', 'perimeter_post_3x3'),
-            ('perimeter_panel_2x2', 'perimeter_panel_2x3', 'perimeter_panel_3x3'),
-            ('perimeter_beam_2x2', 'perimeter_beam_2x3', 'perimeter_beam_3x3'), 
-            ('perimeter_facia_length_2x2', 'perimeter_facia_length_2x3', 'perimeter_facia_length_3x3'),
-            ('perimeter_facia_width_2x2', 'perimeter_facia_width_2x3', 'perimeter_facia_width_3x3'),
-            ('perimeter_corner_length_beam_2x2', 'perimeter_corner_length_beam_2x3', 'perimeter_corner_length_beam_3x3'),
-            ('perimeter_corner_width_beam_2x2', 'perimeter_corner_width_beam_2x3', 'perimeter_corner_width_beam_3x3'),
+        ('Cluster Panel', {'fields': (
+            'cluster_panel_2x2', 'cluster_panel_2x3', 'cluster_panel_3x3',
+            'cluster_panel_3x4', 'cluster_panel_4x4'
+        )}),
+        ('Cluster Beam', {'fields': (
+            'cluster_beam_2x2', 'cluster_beam_2x3', 'cluster_beam_3x3',
+            'cluster_beam_3x4', 'cluster_beam_4x4'
+        )}),
+        ('Cluster Facia Length', {'fields': (
+            'cluster_facia_length_2x2', 'cluster_facia_length_2x3', 'cluster_facia_length_3x3',
+            'cluster_facia_length_3x4', 'cluster_facia_length_4x4'
+        )}),
+        ('Cluster Facia Width', {'fields': (
+            'cluster_facia_width_2x2', 'cluster_facia_width_2x3', 'cluster_facia_width_3x3',
+            'cluster_facia_width_3x4', 'cluster_facia_width_4x4'
+        )}),
+        ('Cluster Corner Length Beam', {'fields': (
+            'cluster_corner_length_beam_2x2', 'cluster_corner_length_beam_2x3', 'cluster_corner_length_beam_3x3',
+            'cluster_corner_length_beam_3x4', 'cluster_corner_length_beam_4x4'
+        )}),
+        ('Cluster Corner Width Beam', {'fields': (
+            'cluster_corner_width_beam_2x2', 'cluster_corner_width_beam_2x3', 'cluster_corner_width_beam_3x3',
+            'cluster_corner_width_beam_3x4', 'cluster_corner_width_beam_4x4'
+        )}),
+        ('Perimeter Post', {'fields': (
+            'perimeter_post_2x2', 'perimeter_post_2x3', 'perimeter_post_3x3'
+        )}),
+        ('Perimeter Panel', {'fields': (
+            'perimeter_panel_2x2', 'perimeter_panel_2x3', 'perimeter_panel_3x3'
+        )}),
+        ('Perimeter Beam', {'fields': (
+            'perimeter_beam_2x2', 'perimeter_beam_2x3', 'perimeter_beam_3x3'
+        )}),
+        ('Perimeter Facia Length', {'fields': (
+            'perimeter_facia_length_2x2', 'perimeter_facia_length_2x3', 'perimeter_facia_length_3x3'
+        )}),
+        ('Perimeter Facia Width', {'fields': (
+            'perimeter_facia_width_2x2', 'perimeter_facia_width_2x3', 'perimeter_facia_width_3x3'
+        )}),
+        ('Perimeter Corner Length Beam', {'fields': (
+            'perimeter_corner_length_beam_2x2', 'perimeter_corner_length_beam_2x3', 'perimeter_corner_length_beam_3x3'
+        )}),
+        ('Perimeter Corner Width Beam', {'fields': (
+            'perimeter_corner_width_beam_2x2', 'perimeter_corner_width_beam_2x3', 'perimeter_corner_width_beam_3x3'
         )}),
         ('Event Details', {'fields': (
             ('event_name', 'event_venue'),

@@ -276,6 +276,7 @@ class Job(models.Model):
             cluster_panel_count_2x2 = math.ceil(cluster_panel_count_2x2 * contingency_factor) * instance.cluster_total_count_2x2
             cluster_beam_count_2x2 = math.ceil(cluster_beam_count_2x2 * contingency_factor) * instance.cluster_total_count_2x2
             cluster_facia_length_count_2x2 = math.ceil(cluster_facia_length_count_2x2 * contingency_factor) * instance.cluster_total_count_2x2
+            cluster_facia_width_count_2x2 = math.ceil(cluster_facia_width_count_2x2 * contingency_factor) * instance.cluster_total_count_2x2
             cluster_corner_length_beam_count_2x2 = math.ceil(cluster_corner_length_beam_count_2x2 * contingency_factor) * instance.cluster_total_count_2x2
             cluster_corner_width_beam_count_2x2 = math.ceil(cluster_corner_width_beam_count_2x2 * contingency_factor) * instance.cluster_total_count_2x2
         # End of compute for Cluster 2 x 2 ============================================================================
@@ -327,6 +328,7 @@ class Job(models.Model):
             cluster_panel_count_2x3 = math.ceil(cluster_panel_count_2x3 * contingency_factor) * instance.cluster_total_count_2x3
             cluster_beam_count_2x3 = math.ceil(cluster_beam_count_2x3 * contingency_factor) * instance.cluster_total_count_2x3
             cluster_facia_length_count_2x3 = math.ceil(cluster_facia_length_count_2x3 * contingency_factor) * instance.cluster_total_count_2x3
+            cluster_facia_width_count_2x3 = math.ceil(cluster_facia_width_count_2x3 * contingency_factor) * instance.cluster_total_count_2x3
             cluster_corner_length_beam_count_2x3 = math.ceil(cluster_corner_length_beam_count_2x3 * contingency_factor) * instance.cluster_total_count_2x3
             cluster_corner_width_beam_count_2x3 = math.ceil(cluster_corner_width_beam_count_2x3 * contingency_factor) * instance.cluster_total_count_2x3
         # End of compute for Cluster 2 x 3 ============================================================================
@@ -378,6 +380,7 @@ class Job(models.Model):
             cluster_panel_count_3x3 = math.ceil(cluster_panel_count_3x3 * contingency_factor) * instance.cluster_total_count_3x3
             cluster_beam_count_3x3 = math.ceil(cluster_beam_count_3x3 * contingency_factor) * instance.cluster_total_count_3x3
             cluster_facia_length_count_3x3 = math.ceil(cluster_facia_length_count_3x3 * contingency_factor) * instance.cluster_total_count_3x3
+            cluster_facia_width_count_3x3 = math.ceil(cluster_facia_width_count_3x3 * contingency_factor) * instance.cluster_total_count_3x3
             cluster_corner_length_beam_count_3x3 = math.ceil(cluster_corner_length_beam_count_3x3 * contingency_factor) * instance.cluster_total_count_3x3
             cluster_corner_width_beam_count_3x3 = math.ceil(cluster_corner_width_beam_count_3x3 * contingency_factor) * instance.cluster_total_count_3x3
         # End of compute for Cluster 3 x 3 ============================================================================
@@ -429,6 +432,7 @@ class Job(models.Model):
             cluster_panel_count_3x4 = math.ceil(cluster_panel_count_3x4 * contingency_factor) * instance.cluster_total_count_3x4
             cluster_beam_count_3x4 = math.ceil(cluster_beam_count_3x4 * contingency_factor) * instance.cluster_total_count_3x4
             cluster_facia_length_count_3x4 = math.ceil(cluster_facia_length_count_3x4 * contingency_factor) * instance.cluster_total_count_3x4
+            cluster_facia_width_count_3x4 = math.ceil(cluster_facia_width_count_3x4 * contingency_factor) * instance.cluster_total_count_3x4
             cluster_corner_length_beam_count_3x4 = math.ceil(cluster_corner_length_beam_count_3x4 * contingency_factor) * instance.cluster_total_count_3x4
             cluster_corner_width_beam_count_3x4 = math.ceil(cluster_corner_width_beam_count_3x4 * contingency_factor) * instance.cluster_total_count_3x4
         # End of compute for Cluster 3 x 4 ============================================================================
@@ -480,6 +484,7 @@ class Job(models.Model):
             cluster_panel_count_4x4 = math.ceil(cluster_panel_count_4x4 * contingency_factor) * instance.cluster_total_count_4x4
             cluster_beam_count_4x4 = math.ceil(cluster_beam_count_4x4 * contingency_factor) * instance.cluster_total_count_4x4
             cluster_facia_length_count_4x4 = math.ceil(cluster_facia_length_count_4x4 * contingency_factor) * instance.cluster_total_count_4x4
+            cluster_facia_width_count_4x4 = math.ceil(cluster_facia_width_count_4x4 * contingency_factor) * instance.cluster_total_count_4x4
             cluster_corner_length_beam_count_4x4 = math.ceil(cluster_corner_length_beam_count_4x4 * contingency_factor) * instance.cluster_total_count_4x4
             cluster_corner_width_beam_count_4x4 = math.ceil(cluster_corner_width_beam_count_4x4 * contingency_factor) * instance.cluster_total_count_4x4
         # End of compute for Cluster 4 x 4 ============================================================================
@@ -575,6 +580,7 @@ class Job(models.Model):
             perimeter_panel_count_2x2 = math.ceil(perimeter_panel_count_2x2 * contingency_factor) * instance.perimeter_total_count_2x2
             perimeter_beam_count_2x2 = math.ceil(perimeter_beam_count_2x2 * contingency_factor) * instance.perimeter_total_count_2x2
             perimeter_facia_length_count_2x2 = math.ceil(perimeter_facia_length_count_2x2 * contingency_factor) * instance.perimeter_total_count_2x2
+            perimeter_facia_width_count_2x2 = math.ceil(perimeter_facia_width_count_2x2 * contingency_factor) * instance.perimeter_total_count_2x2
             perimeter_corner_length_beam_count_2x2 = math.ceil(perimeter_corner_length_beam_count_2x2 * contingency_factor) * instance.perimeter_total_count_2x2
             perimeter_corner_width_beam_count_2x2 = math.ceil(perimeter_corner_width_beam_count_2x2 * contingency_factor) * instance.perimeter_total_count_2x2
         # End of compute for Perimeter 2 x 2 ============================================================================
@@ -652,6 +658,7 @@ class Job(models.Model):
             perimeter_panel_count_2x3 = math.ceil(perimeter_panel_count_2x3 * contingency_factor) * instance.perimeter_total_count_2x3
             perimeter_beam_count_2x3 = math.ceil(perimeter_beam_count_2x3 * contingency_factor) * instance.perimeter_total_count_2x3
             perimeter_facia_length_count_2x3 = math.ceil(perimeter_facia_length_count_2x3 * contingency_factor) * instance.perimeter_total_count_2x3
+            perimeter_facia_width_count_2x3 = math.ceil(perimeter_facia_width_count_2x3 * contingency_factor) * instance.perimeter_total_count_2x3
             perimeter_corner_length_beam_count_2x3 = math.ceil(perimeter_corner_length_beam_count_2x3 * contingency_factor) * instance.perimeter_total_count_2x3
             perimeter_corner_width_beam_count_2x3 = math.ceil(perimeter_corner_width_beam_count_2x3 * contingency_factor) * instance.perimeter_total_count_2x3
         # End of compute for Perimeter 2 x 3 ============================================================================
@@ -729,6 +736,7 @@ class Job(models.Model):
             perimeter_panel_count_3x3 = math.ceil(perimeter_panel_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
             perimeter_beam_count_3x3 = math.ceil(perimeter_beam_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
             perimeter_facia_length_count_3x3 = math.ceil(perimeter_facia_length_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
+            perimeter_facia_width_count_3x3 = math.ceil(perimeter_facia_width_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
             perimeter_corner_length_beam_count_3x3 = math.ceil(perimeter_corner_length_beam_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
             perimeter_corner_width_beam_count_3x3 = math.ceil(perimeter_corner_width_beam_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
         # End of compute for Perimeter 3 x 3 ============================================================================
@@ -811,7 +819,6 @@ class Job(models.Model):
         created = not self.pk  # Check if the Job instance is being created
 
         computed_bom = self.compute_bom(self)
-        print('self instance before saving', self.__dict__)
 
         super().save(*args, **kwargs)
         BomGeneration = apps.get_model('jobs', 'BomGeneration')
@@ -827,79 +834,78 @@ class Job(models.Model):
                 existing_bom_generation = None
                 self.create_bom(BomGeneration, computed_bom)
 
-            print('Existing BOM generation', existing_bom_generation)
             if existing_bom_generation:
                 # Cluster
-                existing_bom_generation.cluster_post_2x2 = computed_bom.get('cluster_post_count_2x2'),
-                existing_bom_generation.cluster_post_2x3 = computed_bom.get('cluster_post_count_2x3'),
-                existing_bom_generation.cluster_post_3x3 = computed_bom.get('cluster_post_count_3x3'),
-                existing_bom_generation.cluster_post_3x4 = computed_bom.get('cluster_post_count_3x4'),
-                existing_bom_generation.cluster_post_4x4 = computed_bom.get('cluster_post_count_4x4'),
+                existing_bom_generation.cluster_post_2x2 = computed_bom.get('cluster_post_count_2x2')
+                existing_bom_generation.cluster_post_2x3 = computed_bom.get('cluster_post_count_2x3')
+                existing_bom_generation.cluster_post_3x3 = computed_bom.get('cluster_post_count_3x3')
+                existing_bom_generation.cluster_post_3x4 = computed_bom.get('cluster_post_count_3x4')
+                existing_bom_generation.cluster_post_4x4 = computed_bom.get('cluster_post_count_4x4')
 
-                existing_bom_generation.cluster_panel_2x2 = computed_bom.get('cluster_panel_count_2x2'),
-                existing_bom_generation.cluster_panel_2x3 = computed_bom.get('cluster_panel_count_2x3'),
-                existing_bom_generation.cluster_panel_3x3 = computed_bom.get('cluster_panel_count_3x3'),
-                existing_bom_generation.cluster_panel_3x4 = computed_bom.get('cluster_panel_count_3x4'),
-                existing_bom_generation.cluster_panel_4x4 = computed_bom.get('cluster_panel_count_4x4'),
+                existing_bom_generation.cluster_panel_2x2 = computed_bom.get('cluster_panel_count_2x2')
+                existing_bom_generation.cluster_panel_2x3 = computed_bom.get('cluster_panel_count_2x3')
+                existing_bom_generation.cluster_panel_3x3 = computed_bom.get('cluster_panel_count_3x3')
+                existing_bom_generation.cluster_panel_3x4 = computed_bom.get('cluster_panel_count_3x4')
+                existing_bom_generation.cluster_panel_4x4 = computed_bom.get('cluster_panel_count_4x4')
 
-                existing_bom_generation.cluster_beam_2x2 = computed_bom.get('cluster_beam_count_2x2'),
-                existing_bom_generation.cluster_beam_2x3 = computed_bom.get('cluster_beam_count_2x3'),
-                existing_bom_generation.cluster_beam_3x3 = computed_bom.get('cluster_beam_count_3x3'),
-                existing_bom_generation.cluster_beam_3x4 = computed_bom.get('cluster_beam_count_3x4'),
-                existing_bom_generation.cluster_beam_4x4 = computed_bom.get('cluster_beam_count_4x4'),
+                existing_bom_generation.cluster_beam_2x2 = computed_bom.get('cluster_beam_count_2x2')
+                existing_bom_generation.cluster_beam_2x3 = computed_bom.get('cluster_beam_count_2x3')
+                existing_bom_generation.cluster_beam_3x3 = computed_bom.get('cluster_beam_count_3x3')
+                existing_bom_generation.cluster_beam_3x4 = computed_bom.get('cluster_beam_count_3x4')
+                existing_bom_generation.cluster_beam_4x4 = computed_bom.get('cluster_beam_count_4x4')
 
-                existing_bom_generation.cluster_facia_length_2x2 = computed_bom.get('cluster_facia_length_count_2x2'),
-                existing_bom_generation.cluster_facia_length_2x3 = computed_bom.get('cluster_facia_length_count_2x3'),
-                existing_bom_generation.cluster_facia_length_3x3 = computed_bom.get('cluster_facia_length_count_3x3'),
-                existing_bom_generation.cluster_facia_length_3x4 = computed_bom.get('cluster_facia_length_count_3x4'),
-                existing_bom_generation.cluster_facia_length_4x4 = computed_bom.get('cluster_facia_length_count_4x4'),
+                existing_bom_generation.cluster_facia_length_2x2 = computed_bom.get('cluster_facia_length_count_2x2')
+                existing_bom_generation.cluster_facia_length_2x3 = computed_bom.get('cluster_facia_length_count_2x3')
+                existing_bom_generation.cluster_facia_length_3x3 = computed_bom.get('cluster_facia_length_count_3x3')
+                existing_bom_generation.cluster_facia_length_3x4 = computed_bom.get('cluster_facia_length_count_3x4')
+                existing_bom_generation.cluster_facia_length_4x4 = computed_bom.get('cluster_facia_length_count_4x4')
 
-                existing_bom_generation.cluster_facia_width_2x2 = computed_bom.get('cluster_facia_width_count_2x2'),
-                existing_bom_generation.cluster_facia_width_2x3 = computed_bom.get('cluster_facia_width_count_2x3'),
-                existing_bom_generation.cluster_facia_width_3x3 = computed_bom.get('cluster_facia_width_count_3x3'),
-                existing_bom_generation.cluster_facia_width_3x4 = computed_bom.get('cluster_facia_width_count_3x4'),
-                existing_bom_generation.cluster_facia_width_4x4 = computed_bom.get('cluster_facia_width_count_4x4'),
+                existing_bom_generation.cluster_facia_width_2x2 = computed_bom.get('cluster_facia_width_count_2x2')
+                existing_bom_generation.cluster_facia_width_2x3 = computed_bom.get('cluster_facia_width_count_2x3')
+                existing_bom_generation.cluster_facia_width_3x3 = computed_bom.get('cluster_facia_width_count_3x3')
+                existing_bom_generation.cluster_facia_width_3x4 = computed_bom.get('cluster_facia_width_count_3x4')
+                existing_bom_generation.cluster_facia_width_4x4 = computed_bom.get('cluster_facia_width_count_4x4')
 
-                existing_bom_generation.cluster_corner_length_beam_2x2 = computed_bom.get('cluster_corner_length_beam_count_2x2'),
-                existing_bom_generation.cluster_corner_length_beam_2x3 = computed_bom.get('cluster_corner_length_beam_count_2x3'),
-                existing_bom_generation.cluster_corner_length_beam_3x3 = computed_bom.get('cluster_corner_length_beam_count_3x3'),
-                existing_bom_generation.cluster_corner_length_beam_3x4 = computed_bom.get('cluster_corner_length_beam_count_3x4'),
-                existing_bom_generation.cluster_corner_length_beam_4x4 = computed_bom.get('cluster_corner_length_beam_count_4x4'),
+                existing_bom_generation.cluster_corner_length_beam_2x2 = computed_bom.get('cluster_corner_length_beam_count_2x2')
+                existing_bom_generation.cluster_corner_length_beam_2x3 = computed_bom.get('cluster_corner_length_beam_count_2x3')
+                existing_bom_generation.cluster_corner_length_beam_3x3 = computed_bom.get('cluster_corner_length_beam_count_3x3')
+                existing_bom_generation.cluster_corner_length_beam_3x4 = computed_bom.get('cluster_corner_length_beam_count_3x4')
+                existing_bom_generation.cluster_corner_length_beam_4x4 = computed_bom.get('cluster_corner_length_beam_count_4x4')
 
-                existing_bom_generation.cluster_corner_width_beam_2x2 = computed_bom.get('cluster_corner_width_beam_count_2x2'),
-                existing_bom_generation.cluster_corner_width_beam_2x3 = computed_bom.get('cluster_corner_width_beam_count_2x3'),
-                existing_bom_generation.cluster_corner_width_beam_3x3 = computed_bom.get('cluster_corner_width_beam_count_3x3'),
-                existing_bom_generation.cluster_corner_width_beam_3x4 = computed_bom.get('cluster_corner_width_beam_count_3x4'),
-                existing_bom_generation.cluster_corner_width_beam_4x4 = computed_bom.get('cluster_corner_width_beam_count_4x4'),
+                existing_bom_generation.cluster_corner_width_beam_2x2 = computed_bom.get('cluster_corner_width_beam_count_2x2')
+                existing_bom_generation.cluster_corner_width_beam_2x3 = computed_bom.get('cluster_corner_width_beam_count_2x3')
+                existing_bom_generation.cluster_corner_width_beam_3x3 = computed_bom.get('cluster_corner_width_beam_count_3x3')
+                existing_bom_generation.cluster_corner_width_beam_3x4 = computed_bom.get('cluster_corner_width_beam_count_3x4')
+                existing_bom_generation.cluster_corner_width_beam_4x4 = computed_bom.get('cluster_corner_width_beam_count_4x4')
 
                 # Perimeter
-                existing_bom_generation.perimeter_post_2x2 = computed_bom.get('perimeter_post_count_2x2'),
-                existing_bom_generation.perimeter_post_2x3 = computed_bom.get('perimeter_post_count_2x3'),
-                existing_bom_generation.perimeter_post_3x3 = computed_bom.get('perimeter_post_count_3x3'),
+                existing_bom_generation.perimeter_post_2x2 = computed_bom.get('perimeter_post_count_2x2')
+                existing_bom_generation.perimeter_post_2x3 = computed_bom.get('perimeter_post_count_2x3')
+                existing_bom_generation.perimeter_post_3x3 = computed_bom.get('perimeter_post_count_3x3')
 
-                existing_bom_generation.perimeter_panel_2x2 = computed_bom.get('perimeter_panel_count_2x2'),
-                existing_bom_generation.perimeter_panel_2x3 = computed_bom.get('perimeter_panel_count_2x3'),
-                existing_bom_generation.perimeter_panel_3x3 = computed_bom.get('perimeter_panel_count_3x3'),
+                existing_bom_generation.perimeter_panel_2x2 = computed_bom.get('perimeter_panel_count_2x2')
+                existing_bom_generation.perimeter_panel_2x3 = computed_bom.get('perimeter_panel_count_2x3')
+                existing_bom_generation.perimeter_panel_3x3 = computed_bom.get('perimeter_panel_count_3x3')
 
-                existing_bom_generation.perimeter_beam_2x2 = computed_bom.get('perimeter_beam_count_2x2'),
-                existing_bom_generation.perimeter_beam_2x3 = computed_bom.get('perimeter_beam_count_2x3'),
-                existing_bom_generation.perimeter_beam_3x3 = computed_bom.get('perimeter_beam_count_3x3'),
+                existing_bom_generation.perimeter_beam_2x2 = computed_bom.get('perimeter_beam_count_2x2')
+                existing_bom_generation.perimeter_beam_2x3 = computed_bom.get('perimeter_beam_count_2x3')
+                existing_bom_generation.perimeter_beam_3x3 = computed_bom.get('perimeter_beam_count_3x3')
 
-                existing_bom_generation.perimeter_facia_length_2x2 = computed_bom.get('perimeter_facia_length_count_2x2'),
-                existing_bom_generation.perimeter_facia_length_2x3 = computed_bom.get('perimeter_facia_length_count_2x3'),
-                existing_bom_generation.perimeter_facia_length_3x3 = computed_bom.get('perimeter_facia_length_count_3x3'),
+                existing_bom_generation.perimeter_facia_length_2x2 = computed_bom.get('perimeter_facia_length_count_2x2')
+                existing_bom_generation.perimeter_facia_length_2x3 = computed_bom.get('perimeter_facia_length_count_2x3')
+                existing_bom_generation.perimeter_facia_length_3x3 = computed_bom.get('perimeter_facia_length_count_3x3')
 
-                existing_bom_generation.perimeter_facia_width_2x2 = computed_bom.get('perimeter_facia_width_count_2x2'),
-                existing_bom_generation.perimeter_facia_width_2x3 = computed_bom.get('perimeter_facia_width_count_2x3'),
-                existing_bom_generation.perimeter_facia_width_3x3 = computed_bom.get('perimeter_facia_width_count_3x3'),
+                existing_bom_generation.perimeter_facia_width_2x2 = computed_bom.get('perimeter_facia_width_count_2x2')
+                existing_bom_generation.perimeter_facia_width_2x3 = computed_bom.get('perimeter_facia_width_count_2x3')
+                existing_bom_generation.perimeter_facia_width_3x3 = computed_bom.get('perimeter_facia_width_count_3x3')
 
-                existing_bom_generation.perimeter_corner_length_beam_2x2 = computed_bom.get('perimeter_corner_length_beam_count_2x2'),
-                existing_bom_generation.perimeter_corner_length_beam_2x3 = computed_bom.get('perimeter_corner_length_beam_count_2x3'),
-                existing_bom_generation.perimeter_corner_length_beam_3x3 = computed_bom.get('perimeter_corner_length_beam_count_3x3'),
+                existing_bom_generation.perimeter_corner_length_beam_2x2 = computed_bom.get('perimeter_corner_length_beam_count_2x2')
+                existing_bom_generation.perimeter_corner_length_beam_2x3 = computed_bom.get('perimeter_corner_length_beam_count_2x3')
+                existing_bom_generation.perimeter_corner_length_beam_3x3 = computed_bom.get('perimeter_corner_length_beam_count_3x3')
 
-                existing_bom_generation.perimeter_corner_width_beam_2x2 = computed_bom.get('perimeter_corner_width_beam_count_2x2'),
-                existing_bom_generation.perimeter_corner_width_beam_2x3 = computed_bom.get('perimeter_corner_width_beam_count_2x3'),
-                existing_bom_generation.perimeter_corner_width_beam_3x3 = computed_bom.get('perimeter_corner_width_beam_count_3x3'),
+                existing_bom_generation.perimeter_corner_width_beam_2x2 = computed_bom.get('perimeter_corner_width_beam_count_2x2')
+                existing_bom_generation.perimeter_corner_width_beam_2x3 = computed_bom.get('perimeter_corner_width_beam_count_2x3')
+                existing_bom_generation.perimeter_corner_width_beam_3x3 = computed_bom.get('perimeter_corner_width_beam_count_3x3')
 
                 existing_bom_generation.save()
 
@@ -911,76 +917,76 @@ class BomGeneration(models.Model):
     job = models.ForeignKey(Job, on_delete=models.PROTECT, editable=False)
 
     # Cluster
-    cluster_post_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Post 2 x 2')
-    cluster_post_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Post 2 x 3')
-    cluster_post_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Post 3 x 3')
-    cluster_post_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Post 3 x 4')
-    cluster_post_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Post 4 x 4')
+    cluster_post_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_post_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_post_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_post_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_post_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
-    cluster_panel_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Panel 2 x 2')
-    cluster_panel_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Panel 2 x 3')
-    cluster_panel_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Panel 3 x 3')
-    cluster_panel_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Panel 3 x 4')
-    cluster_panel_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Panel 4 x 4')
+    cluster_panel_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_panel_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_panel_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_panel_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_panel_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
-    cluster_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Beam 2 x 2')
-    cluster_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Beam 2 x 3')
-    cluster_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Beam 3 x 3')
-    cluster_beam_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Beam 3 x 4')
-    cluster_beam_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Beam 4 x 4')
+    cluster_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_beam_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_beam_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
-    cluster_facia_length_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Length 2 x 2')
-    cluster_facia_length_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Length 2 x 3')
-    cluster_facia_length_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Length 3 x 3')
-    cluster_facia_length_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Length 3 x 4')
-    cluster_facia_length_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Length 4 x 4')
+    cluster_facia_length_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_facia_length_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_facia_length_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_facia_length_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_facia_length_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
-    cluster_facia_width_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Width 2 x 2')
-    cluster_facia_width_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Width 2 x 3')
-    cluster_facia_width_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Width 3 x 3')
-    cluster_facia_width_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Width 3 x 4')
-    cluster_facia_width_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Facia Width 4 x 4')
+    cluster_facia_width_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_facia_width_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_facia_width_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_facia_width_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_facia_width_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
-    cluster_corner_length_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Length Beam 2 x 2')
-    cluster_corner_length_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Length Beam 2 x 3')
-    cluster_corner_length_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Length Beam 3 x 3')
-    cluster_corner_length_beam_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Length Beam 3 x 4')
-    cluster_corner_length_beam_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Length Beam 4 x 4')
+    cluster_corner_length_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_corner_length_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_corner_length_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_corner_length_beam_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_corner_length_beam_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
-    cluster_corner_width_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Width Beam 2 x 2')
-    cluster_corner_width_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Width Beam 2 x 3')
-    cluster_corner_width_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Width Beam 3 x 3')
-    cluster_corner_width_beam_3x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Width Beam 3 x 4')
-    cluster_corner_width_beam_4x4 = models.IntegerField(default=0, editable=False, verbose_name='Cluster Corner Width Beam 4 x 4')
+    cluster_corner_width_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    cluster_corner_width_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    cluster_corner_width_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+    cluster_corner_width_beam_3x4 = models.IntegerField(default=0, editable=False, verbose_name='3 x 4')
+    cluster_corner_width_beam_4x4 = models.IntegerField(default=0, editable=False, verbose_name='4 x 4')
 
     # Perimeter
-    perimeter_post_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Post 2 x 2')
-    perimeter_post_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Post 2 x 3')
-    perimeter_post_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Post 3 x 3')
+    perimeter_post_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_post_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_post_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
-    perimeter_panel_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Panel 2 x 2')
-    perimeter_panel_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Panel 2 x 3')
-    perimeter_panel_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Panel 3 x 3')
+    perimeter_panel_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_panel_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_panel_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
-    perimeter_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Beam 2 x 2')
-    perimeter_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Beam 2 x 3')
-    perimeter_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Beam 3 x 3')
+    perimeter_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
-    perimeter_facia_length_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Facia Length 2 x 2')
-    perimeter_facia_length_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Facia Length 2 x 3')
-    perimeter_facia_length_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Facia Length 3 x 3')
+    perimeter_facia_length_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_facia_length_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_facia_length_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
-    perimeter_facia_width_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Facia Width 2 x 2')
-    perimeter_facia_width_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Facia Width 2 x 3')
-    perimeter_facia_width_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Facia Width 3 x 3')
+    perimeter_facia_width_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_facia_width_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_facia_width_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
-    perimeter_corner_length_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Corner Length Beam 2 x 2')
-    perimeter_corner_length_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Corner Length Beam 2 x 3')
-    perimeter_corner_length_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Corner Length Beam 3 x 3')
+    perimeter_corner_length_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_corner_length_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_corner_length_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
-    perimeter_corner_width_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Corner Width Beam 2 x 2')
-    perimeter_corner_width_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Corner Width Beam 2 x 3')
-    perimeter_corner_width_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='Perimeter Corner Width Beam 3 x 3')
+    perimeter_corner_width_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
+    perimeter_corner_width_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
+    perimeter_corner_width_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
