@@ -40,7 +40,7 @@ python manage.py createsuperuser
 - Answer the prompts
 - Run the app with the command 
 ```bash
-python ./src/app.py
+python manage.py runserver
 ```
 - Login using your superuser credentials
 
