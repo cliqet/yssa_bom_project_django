@@ -117,14 +117,21 @@ class BomGenerationAdmin(admin.ModelAdmin):
         ('Perimeter Corner Width Beam', {'fields': (
             'perimeter_corner_width_beam_2x2', 'perimeter_corner_width_beam_2x3', 'perimeter_corner_width_beam_3x3'
         )}),
+        ('Item Summary', {'fields': (
+            'total_posts',
+            'total_panels',
+            'total_beams',
+            'total_facia_lengths',
+            'total_facia_widths',
+            'total_corner_length_beams',
+            'total_corner_width_beams'
+        )}),
         ('Event Details', {'fields': (
-            ('event_name', 'event_venue'),
-            ('start_date', 'end_date')
+            'event_name', 'event_venue', 'start_date', 'end_date'
         )}),
         ('Client Details', {'fields': ('client',)}),
         ('Setup Schedule', {'fields': (
-            ('ingress_date', 'ingress_time'),
-            ('egress_date', 'egress_time')
+            'ingress_date', 'ingress_time', 'egress_date', 'egress_time'
         )}),
         ('Processing Information', {'fields': (
             'prepared_by',
@@ -152,6 +159,9 @@ class BomGenerationAdmin(admin.ModelAdmin):
         'perimeter_facia_width_2x2', 'perimeter_facia_width_2x3', 'perimeter_facia_width_3x3',
         'perimeter_corner_length_beam_2x2', 'perimeter_corner_length_beam_2x3', 'perimeter_corner_length_beam_3x3',
         'perimeter_corner_width_beam_2x2', 'perimeter_corner_width_beam_2x3', 'perimeter_corner_width_beam_3x3',
+
+        'total_posts', 'total_panels', 'total_beams', 'total_facia_lengths',
+        'total_facia_widths', 'total_corner_length_beams', 'total_corner_width_beams',
 
         'event_name', 'event_venue', 'start_date', 'end_date',
         'client', 'ingress_date', 'ingress_time', 'egress_date', 'egress_time',

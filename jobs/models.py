@@ -199,6 +199,14 @@ class Job(models.Model):
             perimeter_corner_width_beam_2x3 = computed_bom.get('perimeter_corner_width_beam_count_2x3'),
             perimeter_corner_width_beam_3x3 = computed_bom.get('perimeter_corner_width_beam_count_3x3'),
             
+            total_posts = computed_bom.get('total_posts'),
+            total_panels = computed_bom.get('total_panels'),
+            total_beams = computed_bom.get('total_beams'),
+            total_facia_lengths = computed_bom.get('total_facia_lengths'),
+            total_facia_widths = computed_bom.get('total_facia_widths'),
+            total_corner_length_beams = computed_bom.get('total_corner_length_beams'),
+            total_corner_width_beams = computed_bom.get('total_corner_width_beams'),
+
             job=self
         )
         print('Successfully created BOM')
@@ -741,6 +749,77 @@ class Job(models.Model):
             perimeter_corner_width_beam_count_3x3 = math.ceil(perimeter_corner_width_beam_count_3x3 * contingency_factor) * instance.perimeter_total_count_3x3
         # End of compute for Perimeter 3 x 3 ============================================================================
 
+        total_posts = (
+            cluster_post_count_2x2 + 
+            cluster_post_count_2x3 +
+            cluster_post_count_3x3 +
+            cluster_post_count_3x4 +
+            cluster_post_count_4x4 +
+            perimeter_post_count_2x2 + 
+            perimeter_post_count_2x3 + 
+            perimeter_post_count_3x3 
+        )
+        total_panels = (
+            cluster_panel_count_2x2 + 
+            cluster_panel_count_2x3 +
+            cluster_panel_count_3x3 +
+            cluster_panel_count_3x4 +
+            cluster_panel_count_4x4 +
+            perimeter_panel_count_2x2 + 
+            perimeter_panel_count_2x3 + 
+            perimeter_panel_count_3x3 
+        )
+        total_beams = (
+            cluster_beam_count_2x2 + 
+            cluster_beam_count_2x3 +
+            cluster_beam_count_3x3 +
+            cluster_beam_count_3x4 +
+            cluster_beam_count_4x4 +
+            perimeter_beam_count_2x2 + 
+            perimeter_beam_count_2x3 + 
+            perimeter_beam_count_3x3 
+        )
+        total_facia_lengths = (
+            cluster_facia_length_count_2x2 + 
+            cluster_facia_length_count_2x3 +
+            cluster_facia_length_count_3x3 +
+            cluster_facia_length_count_3x4 +
+            cluster_facia_length_count_4x4 +
+            perimeter_facia_length_count_2x2 + 
+            perimeter_facia_length_count_2x3 + 
+            perimeter_facia_length_count_3x3 
+        )
+        total_facia_widths = (
+            cluster_facia_width_count_2x2 + 
+            cluster_facia_width_count_2x3 +
+            cluster_facia_width_count_3x3 +
+            cluster_facia_width_count_3x4 +
+            cluster_facia_width_count_4x4 +
+            perimeter_facia_width_count_2x2 + 
+            perimeter_facia_width_count_2x3 + 
+            perimeter_facia_width_count_3x3 
+        )
+        total_corner_length_beams = (
+            cluster_corner_length_beam_count_2x2 + 
+            cluster_corner_length_beam_count_2x3 +
+            cluster_corner_length_beam_count_3x3 +
+            cluster_corner_length_beam_count_3x4 +
+            cluster_corner_length_beam_count_4x4 +
+            perimeter_corner_length_beam_count_2x2 + 
+            perimeter_corner_length_beam_count_2x3 + 
+            perimeter_corner_length_beam_count_3x3 
+        )
+        total_corner_width_beams = (
+            cluster_corner_width_beam_count_2x2 + 
+            cluster_corner_width_beam_count_2x3 +
+            cluster_corner_width_beam_count_3x3 +
+            cluster_corner_width_beam_count_3x4 +
+            cluster_corner_width_beam_count_4x4 +
+            perimeter_corner_width_beam_count_2x2 + 
+            perimeter_corner_width_beam_count_2x3 + 
+            perimeter_corner_width_beam_count_3x3 
+        )
+
         return {
             # Cluster
             'cluster_post_count_2x2': cluster_post_count_2x2,
@@ -812,7 +891,15 @@ class Job(models.Model):
 
             'perimeter_corner_width_beam_count_2x2': perimeter_corner_width_beam_count_2x2,
             'perimeter_corner_width_beam_count_2x3': perimeter_corner_width_beam_count_2x3,
-            'perimeter_corner_width_beam_count_3x3': perimeter_corner_width_beam_count_3x3
+            'perimeter_corner_width_beam_count_3x3': perimeter_corner_width_beam_count_3x3,
+
+            'total_posts': total_posts,
+            'total_panels': total_panels,
+            'total_beams': total_beams,
+            'total_facia_lengths': total_facia_lengths,
+            'total_facia_widths': total_facia_widths,
+            'total_corner_length_beams': total_corner_length_beams,
+            'total_corner_width_beams': total_corner_width_beams
         }
 
     def save(self, *args, **kwargs):
@@ -907,6 +994,14 @@ class Job(models.Model):
                 existing_bom_generation.perimeter_corner_width_beam_2x3 = computed_bom.get('perimeter_corner_width_beam_count_2x3')
                 existing_bom_generation.perimeter_corner_width_beam_3x3 = computed_bom.get('perimeter_corner_width_beam_count_3x3')
 
+                existing_bom_generation.total_posts = computed_bom.get('total_posts')
+                existing_bom_generation.total_panels = computed_bom.get('total_panels')
+                existing_bom_generation.total_beams = computed_bom.get('total_beams')
+                existing_bom_generation.total_facia_lengths = computed_bom.get('total_facia_lengths')
+                existing_bom_generation.total_facia_widths = computed_bom.get('total_facia_widths')
+                existing_bom_generation.total_corner_length_beams = computed_bom.get('total_corner_length_beams')
+                existing_bom_generation.total_corner_width_beams = computed_bom.get('total_corner_width_beams')
+
                 existing_bom_generation.save()
 
 class BomGeneration(models.Model):
@@ -987,6 +1082,14 @@ class BomGeneration(models.Model):
     perimeter_corner_width_beam_2x2 = models.IntegerField(default=0, editable=False, verbose_name='2 x 2')
     perimeter_corner_width_beam_2x3 = models.IntegerField(default=0, editable=False, verbose_name='2 x 3')
     perimeter_corner_width_beam_3x3 = models.IntegerField(default=0, editable=False, verbose_name='3 x 3')
+
+    total_posts = models.IntegerField(default=0, editable=False, verbose_name='Total Posts')
+    total_panels = models.IntegerField(default=0, editable=False, verbose_name='Total Panels')
+    total_beams = models.IntegerField(default=0, editable=False, verbose_name='Total Beams')
+    total_facia_lengths = models.IntegerField(default=0, editable=False, verbose_name='Total Facia Lengths')
+    total_facia_widths = models.IntegerField(default=0, editable=False, verbose_name='Total Facia Widths')
+    total_corner_length_beams = models.IntegerField(default=0, editable=False, verbose_name='Total Corner Length Beams')
+    total_corner_width_beams = models.IntegerField(default=0, editable=False, verbose_name='Total Corner Width Beams')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
