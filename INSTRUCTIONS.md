@@ -27,10 +27,6 @@ pip install -r requirements.txt
 - To run using sqlite as the database, make sure your config.toml has `sqlite` as value for the variable `db_type`. When choosing postgres, make sure the value is `psql` and fill out the rest of the psql variables. Make sure you have no existing database with the same name
 - Apply migrations to the database by running
 ```bash
-python manage.py makemigrations
-```
-- Then run
-```bash
 python manage.py migrate
 ```
 - Create a superuser for the application by running
