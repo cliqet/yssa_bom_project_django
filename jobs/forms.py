@@ -24,6 +24,6 @@ class JobForm(forms.ModelForm):
         )
         # Limit the choices for the approved_by field
         self.fields['approved_by'].queryset = Employee.objects.filter(
-            Q(employee_position__employee_position_title='Sales Executive') |
-            Q(employee_position__employee_position_title='Purchasing')
+            Q(employee_position__employee_position_title='Sales and Marketing Head') |
+            Q(employee_position__employee_position_title='Operations Head')
         )
