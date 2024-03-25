@@ -554,7 +554,7 @@ class Job(models.Model):
             17: 66,
             18: 70,
             19: 74,
-            20: 88
+            20: 78
         }
         
         perimeter_booth_count_2x2 = int(instance.perimeter_booth_count_2x2)
