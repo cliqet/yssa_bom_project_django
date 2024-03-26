@@ -3,6 +3,7 @@ from django.contrib.admin import SimpleListFilter
 from .models import Job, BomGeneration
 from employees.models import Employee
 from .forms import JobForm
+from utilities.models import ExportCsvMixin
 
 
 LIST_PAGE_COUNT = 20
@@ -27,7 +28,7 @@ class SalesExecutiveFilter(SimpleListFilter):
             return queryset.filter(sales_executive__id=self.value())
 
 
-class JobAdmin(admin.ModelAdmin):
+class JobAdmin(admin.ModelAdmin, ExportCsvMixin):
     form = JobForm
     list_display = (
         'job_id', 'sales_executive', 'event_name', 'event_venue', 'start_date', 'end_date', 
@@ -39,6 +40,7 @@ class JobAdmin(admin.ModelAdmin):
     list_filter = ['client', 'start_date', SalesExecutiveFilter]
     search_fields = ['job_id', 'event_name', 'event_venue']
     list_per_page = LIST_PAGE_COUNT
+    actions = ['export_as_csv']
 
     readonly_fields = ['created_at']
 

@@ -2,11 +2,30 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import Department, EmployeePosition, Employee
 from .forms import UserCreationForm, UserChangeForm
+from utilities.models import ExportCsvMixin
 
 LIST_PAGE_COUNT = 20
 
 
-class EmployeeAdmin(BaseUserAdmin):
+class DepartmentAdmin(admin.ModelAdmin, ExportCsvMixin):
+    list_display = ('id', 'department_name')
+    ordering = ('id',)
+    list_display_links = ['department_name']
+    search_fields = ['department_name']
+    list_per_page = LIST_PAGE_COUNT
+    actions = ['export_as_csv']
+
+
+class EmployeePositionAdmin(admin.ModelAdmin, ExportCsvMixin):
+    list_display = ('id', 'employee_position_title')
+    ordering = ('id',)
+    list_display_links = ['employee_position_title']
+    search_fields = ['employee_position_title']
+    list_per_page = LIST_PAGE_COUNT
+    actions = ['export_as_csv']
+
+
+class EmployeeAdmin(BaseUserAdmin, ExportCsvMixin):
     # The forms to add and change user instances
     form = UserChangeForm
     add_form = UserCreationForm
@@ -20,6 +39,7 @@ class EmployeeAdmin(BaseUserAdmin):
     list_filter = ['department', 'employee_position', 'is_active', 'is_staff', 'is_superuser']
     search_fields = ['email', 'first_name', 'last_name']
     list_per_page = LIST_PAGE_COUNT
+    actions = ['export_as_csv']
 
     # Ensures that password field does not appear as plaintext
     fieldsets = (
@@ -70,6 +90,6 @@ class EmployeeAdmin(BaseUserAdmin):
         return qs.filter(is_superuser=False)
 
 
-admin.site.register(Department)
-admin.site.register(EmployeePosition)
+admin.site.register(Department, DepartmentAdmin)
+admin.site.register(EmployeePosition, EmployeePositionAdmin)
 admin.site.register(Employee, EmployeeAdmin)
