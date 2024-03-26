@@ -1,9 +1,30 @@
 from django.contrib import admin
+from django.contrib.admin import SimpleListFilter
 from .models import Job, BomGeneration
+from employees.models import Employee
 from .forms import JobForm
 
 
 LIST_PAGE_COUNT = 20
+
+
+class SalesExecutiveFilter(SimpleListFilter):
+    """
+        Filter used in admin to show only sales executives in filter options for 
+        sales_executive which are still Employee objects
+    """
+    title = 'Sales Executives'
+    parameter_name = 'sales_executive'
+
+    def lookups(self, request, model_admin):
+        sales_executives = Employee.objects.filter(
+            employee_position__employee_position_title='Sales Executive'
+        ).distinct()
+        return [(se.id, str(se)) for se in sales_executives]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(sales_executive__id=self.value())
 
 
 class JobAdmin(admin.ModelAdmin):
@@ -15,7 +36,7 @@ class JobAdmin(admin.ModelAdmin):
     )
     ordering = ('id',)
     list_display_links = ['job_id']
-    list_filter = ['client', 'start_date']
+    list_filter = ['client', 'start_date', SalesExecutiveFilter]
     search_fields = ['job_id', 'event_name', 'event_venue']
     list_per_page = LIST_PAGE_COUNT
 
