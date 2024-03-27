@@ -20,7 +20,11 @@ class Command(BaseCommand):
 
             foreign_key_errors = []
 
-            for row in csv_reader:
+            for index, row in enumerate(csv_reader):
+                # skip the column headers
+                if index == 0:
+                    continue
+
                 department = None
                 if row[4] != '':
                     try:
@@ -60,5 +64,5 @@ class Command(BaseCommand):
             print('ERROR: You have foreign key errors')
             print('================================================================')
             for error in foreign_key_errors:
-                print(error)
+                print('ERROR:', error)
 

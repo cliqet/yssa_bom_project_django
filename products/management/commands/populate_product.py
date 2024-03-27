@@ -1,5 +1,5 @@
 from django.core.management import BaseCommand
-from employees.models import EmployeePosition
+from products.models import Product
 from msdbom.settings import BASE_DIR
 
 import os
@@ -7,7 +7,7 @@ import csv
 
 
 class Command(BaseCommand):
-    help = 'Create records from csv with python manage.py populate_employee_position <csv_file_name.csv>'
+    help = 'Create records from csv with python manage.py populate_product <csv_file_name.csv>'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_file_name', type=str, help='The csv file name with .csv extension')
@@ -24,14 +24,15 @@ class Command(BaseCommand):
                     continue
                 
                 try:
-                    employee_position = EmployeePosition.objects.create(
-                        employee_position_title=row[1]
+                    product = Product.objects.create(
+                        setup_type=row[1],
+                        name=row[2],
+                        description=row[3]
                     )
-                    employee_position.save()
-                    print(f'Saved {row[0]} {row[1]}')
+                    product.save()
+                    print(f'Saved record {row[0]} {row[1]}')
                 except:
                     print(f'Error creating {row[0]} {row[1]}')
                     continue
 
-        print('Finished populating employee_position table')
-
+        print('Finished populating product table')

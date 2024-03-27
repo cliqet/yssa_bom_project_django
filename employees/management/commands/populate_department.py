@@ -18,7 +18,11 @@ class Command(BaseCommand):
         with open(os.path.join(BASE_DIR, 'csv_files', csv_file_name), 'r') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=';')
 
-            for row in csv_reader:
+            for index, row in enumerate(csv_reader):
+                # skip the column headers
+                if index == 0:
+                    continue
+                
                 try:
                     department = Department.objects.create(
                         department_name=row[1]
