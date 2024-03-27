@@ -56,3 +56,6 @@ ignore/
 ignore/*
 
 NOTES.txt
+
+csv_files/*
+!csv_files/.gitkeep
