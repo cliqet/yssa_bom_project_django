@@ -8,6 +8,9 @@
   # refer to list of IANA timezones here https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   server_time_zone = 'Asia/Manila'
 
+  # default password for user when auto-created
+  user_default_password = ''
+
 [database]
   # valid values are sqlite, psql
   db_type = 'psql'
