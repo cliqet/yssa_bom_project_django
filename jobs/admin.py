@@ -72,6 +72,7 @@ class JobAdmin(admin.ModelAdmin, ExportCsvMixin):
             ('perimeter_booth_count_3x3', 'perimeter_total_count_3x3'),
         )}),
         ('Other Information', {'fields': ('contingency',)}),
+        ('Upload Layout', {'fields': ('layout',)}),
         ('Processing Information', {'fields': (
             'prepared_by',
             'reviewed_by',
