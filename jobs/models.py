@@ -231,8 +231,8 @@ class Job(models.Model):
         cluster_beam_count_base_3x4 = 28
         cluster_beam_count_base_4x4 = 32
 
-        cluster_facial_length_count_base = 4
-        cluster_facial_width_count_base = 4
+        cluster_facia_length_count_base = 4
+        cluster_facia_width_count_base = 4
         cluster_corner_length_beam_count_base = 8
         cluster_corner_width_beam_count_base = 8
 
@@ -266,8 +266,8 @@ class Job(models.Model):
             cluster_post_count_2x2 = cluster_post_count_base_2x2
             cluster_panel_count_2x2 = cluster_panel_count_base_2x2
             cluster_beam_count_2x2 = cluster_beam_count_base_2x2
-            cluster_facia_length_count_2x2 = cluster_facial_length_count_base
-            cluster_facia_width_count_2x2 = cluster_facial_width_count_base
+            cluster_facia_length_count_2x2 = cluster_facia_length_count_base
+            cluster_facia_width_count_2x2 = cluster_facia_width_count_base
             cluster_corner_length_beam_count_2x2 = cluster_corner_length_beam_count_base
             cluster_corner_width_beam_count_2x2 = cluster_corner_width_beam_count_base
         else:
@@ -318,8 +318,8 @@ class Job(models.Model):
             cluster_post_count_2x3 = cluster_post_count_base_2x3
             cluster_panel_count_2x3 = cluster_panel_count_base_2x3
             cluster_beam_count_2x3 = cluster_beam_count_base_2x3
-            cluster_facia_length_count_2x3 = cluster_facial_length_count_base
-            cluster_facia_width_count_2x3 = cluster_facial_width_count_base
+            cluster_facia_length_count_2x3 = cluster_facia_length_count_base
+            cluster_facia_width_count_2x3 = cluster_facia_width_count_base
             cluster_corner_length_beam_count_2x3 = cluster_corner_length_beam_count_base
             cluster_corner_width_beam_count_2x3 = cluster_corner_width_beam_count_base
         else:
@@ -370,8 +370,8 @@ class Job(models.Model):
             cluster_post_count_3x3 = cluster_post_count_base_3x3
             cluster_panel_count_3x3 = cluster_panel_count_base_3x3
             cluster_beam_count_3x3 = cluster_beam_count_base_3x3
-            cluster_facia_length_count_3x3 = cluster_facial_length_count_base
-            cluster_facia_width_count_3x3 = cluster_facial_width_count_base
+            cluster_facia_length_count_3x3 = cluster_facia_length_count_base
+            cluster_facia_width_count_3x3 = cluster_facia_width_count_base
             cluster_corner_length_beam_count_3x3 = cluster_corner_length_beam_count_base
             cluster_corner_width_beam_count_3x3 = cluster_corner_width_beam_count_base
         else:
@@ -422,8 +422,8 @@ class Job(models.Model):
             cluster_post_count_3x4 = cluster_post_count_base_3x4
             cluster_panel_count_3x4 = cluster_panel_count_base_3x4
             cluster_beam_count_3x4 = cluster_beam_count_base_3x4
-            cluster_facia_length_count_3x4 = cluster_facial_length_count_base
-            cluster_facia_width_count_3x4 = cluster_facial_width_count_base
+            cluster_facia_length_count_3x4 = cluster_facia_length_count_base
+            cluster_facia_width_count_3x4 = cluster_facia_width_count_base
             cluster_corner_length_beam_count_3x4 = cluster_corner_length_beam_count_base
             cluster_corner_width_beam_count_3x4 = cluster_corner_width_beam_count_base
         else:
@@ -474,8 +474,8 @@ class Job(models.Model):
             cluster_post_count_4x4 = cluster_post_count_base_4x4
             cluster_panel_count_4x4 = cluster_panel_count_base_4x4
             cluster_beam_count_4x4 = cluster_beam_count_base_4x4
-            cluster_facia_length_count_4x4 = cluster_facial_length_count_base
-            cluster_facia_width_count_4x4 = cluster_facial_width_count_base
+            cluster_facia_length_count_4x4 = cluster_facia_length_count_base
+            cluster_facia_width_count_4x4 = cluster_facia_width_count_base
             cluster_corner_length_beam_count_4x4 = cluster_corner_length_beam_count_base
             cluster_corner_width_beam_count_4x4 = cluster_corner_width_beam_count_base
         else:
