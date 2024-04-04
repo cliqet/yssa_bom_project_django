@@ -8,6 +8,7 @@ from django.urls import path
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from datetime import datetime
+from django.db.models import Q
 
 
 LIST_PAGE_COUNT = 20
@@ -108,8 +109,38 @@ class BomGenerationAdmin(admin.ModelAdmin):
         if not request.user.is_authenticated:
             return HttpResponseRedirect("/admin/")
         
+        # Get all boms whose ingress date to egress date would fall under the 
+        # target date
+        boms = BomGeneration.objects.filter(
+            Q(job__ingress_date__lte=date) & Q(job__egress_date__gte=date)
+        )
+
+        total_posts = 0
+        total_panels = 0
+        total_beams = 0
+        total_facia_lengths = 0
+        total_facia_widths = 0
+        total_corner_length_beams = 0
+        total_corner_width_beams = 0
+
+        for bom in boms:
+            total_posts += bom.total_posts
+            total_panels += bom.total_panels
+            total_beams += bom.total_beams
+            total_facia_lengths += bom.total_facia_lengths
+            total_facia_widths += bom.total_facia_widths
+            total_corner_length_beams += bom.total_corner_length_beams
+            total_corner_width_beams += bom.total_corner_width_beams
+        
         context = {
-            'date': datetime.strptime(date, "%Y-%m-%d").strftime("%B %d, %Y")
+            'date': datetime.strptime(date, "%Y-%m-%d").strftime("%B %d, %Y"),
+            'total_posts': total_posts,
+            'total_panels': total_panels,
+            'total_beams': total_beams,
+            'total_facia_lengths': total_facia_lengths,
+            'total_facia_widths': total_facia_widths,
+            'total_corner_length_beams': total_corner_length_beams,
+            'total_corner_width_beams': total_corner_width_beams
         }
 
         return render(request, 'admin/jobs/bomgeneration/ingress_reports.html', context)

@@ -12,24 +12,32 @@
             <td><span style="font-weight:bold;">Count</span></td>
         </tr>
         <tr>
-            <td>No. of Subscriptions</td>
-            <td>no_of_subscriptions</td>
+            <td>Total Posts</td>
+            <td>{{ total_posts }}</td>
         </tr>
         <tr>
-            <td>No. of Invoices</td>
-            <td>no_of_invoices</td>
+            <td>Total Panels</td>
+            <td>{{ total_panels }}</td>
         </tr>
         <tr>
-            <td>Total amount of Invoices</td>
-            {% comment %} <td>P{{ amount_of_invoices | floatformat:2 }}</td> {% endcomment %}
+            <td>Total Beams</td>
+            <td>{{ total_beams }}</td>
         </tr>
         <tr>
-            <td>Total Payments made</td>
-            {% comment %} <td>P{{ total_payments | floatformat:2 }}</td> {% endcomment %}
+            <td>Total Facia Lengths</td>
+            <td>{{ total_facia_lengths }}</td>
         </tr>
         <tr>
-            <td><strong>Remaining Balance</strong></td>
-            {% comment %} <td><span style="color:{{ balance_color }};">P{{ remaining_balance | floatformat:2 }}</span></td> {% endcomment %}
+            <td>Total Facia Widths</td>
+            <td>{{ total_facia_widths }}</td>
+        </tr>
+        <tr>
+            <td>Total Corner Length Beams</td>
+            <td>{{ total_corner_length_beams }}</td>
+        </tr>
+        <tr>
+            <td>Total Corner Width Beams</td>
+            <td>{{ total_corner_width_beams }}</td>
         </tr>
     </table>
 {% endblock content %}
