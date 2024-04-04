@@ -1,0 +1,24 @@
+{% extends "admin/base_site.html" %}
+
+{% load static %}
+
+
+{% block content %}
+    <form id="form" method="POST" action="/admin/jobs/bomgeneration/ingress-reports-form/">
+        {% csrf_token %}
+        <div class="flex-container">
+            <h1>Ingress Items Report</h1>
+            <div>
+                <label for="date">Select Date:</label>              
+                <input id="date" type="date" name="date" required />
+            </div>
+            <div style="margin-top:20px;">
+                <button 
+                    type="submit"
+                    class="button"
+                    style="padding:10px;"
+                >Generate</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

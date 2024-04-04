@@ -4,6 +4,10 @@ from .models import Job, BomGeneration
 from employees.models import Employee
 from .forms import JobForm
 from utilities.models import ExportCsvMixin
+from django.urls import path
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from datetime import datetime
 
 
 LIST_PAGE_COUNT = 20
@@ -89,6 +93,39 @@ class BomGenerationAdmin(admin.ModelAdmin):
     list_display_links = ['job']
     search_fields = ['job__job_id']
     list_per_page = LIST_PAGE_COUNT
+
+    # add custom admin url and page
+    def get_urls(self):
+        urls = super().get_urls()
+        new_urls = [
+            path('ingress-reports-form/', self.ingress_reports_form, name='ingress-reports-form'),
+            path('ingress-reports/<str:date>/', self.ingress_reports, name='ingress-reports'),
+        ]
+        return new_urls + urls
+    
+    @staticmethod
+    def ingress_reports(request, date):
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect("/admin/")
+        
+        context = {
+            'date': datetime.strptime(date, "%Y-%m-%d").strftime("%B %d, %Y")
+        }
+
+        return render(request, 'admin/jobs/bomgeneration/ingress_reports.html', context)
+
+    @staticmethod
+    def ingress_reports_form(request):
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect("/admin/")
+        
+        if request.method == 'POST':
+            # Handle the form submission here
+            date = request.POST.get('date')
+            return redirect(f'/admin/jobs/bomgeneration/ingress-reports/{date}/')
+
+        return render(request, 'admin/jobs/bomgeneration/ingress_reports_form.html')
+
 
     fieldsets = (
         ('Job Information', {'fields': ('job', 'sales_executive', 'created_at')}),

@@ -1,0 +1,35 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block content %}
+    <div style="margin: 5px;">
+        <h1>Ingress Report Date: <span style="font-weight:bold;">{{ date }}</span></h1>
+    </div>
+
+    <table>
+        <tr>
+            <td><span style="font-weight:bold;">Item</span></td>
+            <td><span style="font-weight:bold;">Count</span></td>
+        </tr>
+        <tr>
+            <td>No. of Subscriptions</td>
+            <td>no_of_subscriptions</td>
+        </tr>
+        <tr>
+            <td>No. of Invoices</td>
+            <td>no_of_invoices</td>
+        </tr>
+        <tr>
+            <td>Total amount of Invoices</td>
+            {% comment %} <td>P{{ amount_of_invoices | floatformat:2 }}</td> {% endcomment %}
+        </tr>
+        <tr>
+            <td>Total Payments made</td>
+            {% comment %} <td>P{{ total_payments | floatformat:2 }}</td> {% endcomment %}
+        </tr>
+        <tr>
+            <td><strong>Remaining Balance</strong></td>
+            {% comment %} <td><span style="color:{{ balance_color }};">P{{ remaining_balance | floatformat:2 }}</span></td> {% endcomment %}
+        </tr>
+    </table>
+{% endblock content %}
